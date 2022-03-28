@@ -45,6 +45,24 @@
   --z-modal: 1000;
 }
 
+.dark-mode{
+   --body-color: black;
+   --first-color: rgb(230, 154, 119);
+   --input-color: rgb(20,20,20);
+   --title-color: white;
+   --text-color: white;
+   --primary-color: #212121;
+   --secondary-color: #edf2fc;
+   --nav-color: #6C56E1;
+   --nav-text-color: #edf2fc;
+   --first-color-second:  rgb(236, 116, 60);
+}
+
+.mode{
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
 /* Font size for large devices */
 @media screen and (min-width: 968px) {
   :root {
@@ -720,7 +738,7 @@ button {
 .footer_copy {
   font-size: var(--smaller-font-size);
   text-align: center;
-  color: var(--text-color-light);
+  color: black;
   margin-top: var(--mb-3);
 }
 
@@ -899,6 +917,10 @@ button {
     width: 270px;
   }
 
+  #mask0 {
+    background-color: black !important;
+  }
+ 
   .home_scroll {
     display: block;
   }

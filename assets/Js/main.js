@@ -102,21 +102,21 @@ workheader.addEventListener("click", () => {
 });
 
 // PORTFOLIO SWIPER
-let swiper = new Swiper(".mySwiper", {
-  cssMode: true,
-  loop: true,
+// let swiper = new Swiper(".mySwiper", {
+//   cssMode: true,
+//   loop: true,
 
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  mousewheel: true,
-  keyboard: true,
-});
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev",
+//   },
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//   },
+//   mousewheel: true,
+//   keyboard: true,
+// });
 
 // SCROLL SECTIONS ACTIVE LINK
 const sections = document.querySelectorAll("section[id]");
@@ -159,9 +159,9 @@ function scrollUpfunc() {
 window.addEventListener("scroll", scrollUpfunc);
 
 // DARK/LIGHT THEME
-const themeButton = document.getElementById("theme-button");
-const darkTheme = "dark-theme";
-const iconTheme = "uil-sun";
+// const themeButton = document.getElementById("theme-button");
+// const darkTheme = "dark-theme";
+// const iconTheme = "uil-sun";
 
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem("selected-theme");
@@ -183,22 +183,35 @@ if (selectedTheme) {
 }
 
 // Activate/Deactivate the theme manually with the button
-themeButton.addEventListener("click", () => {
-  // Add or remove the dark icon/theme
-  document.body.classList.toggle(darkTheme);
-  themeButton.classList.toggle(iconTheme);
-  // We save the theme and the current icon that the user chose
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
-});
+// themeButton.addEventListener("click", () => {
+//   // Add or remove the dark icon/theme
+//   // document.body.classList.toggle(darkTheme);
+//   // themeButton.classList.toggle(iconTheme);
+//   // We save the theme and the current icon that the user chose
+//   localStorage.setItem("selected-theme", getCurrentTheme());
+//   localStorage.setItem("selected-icon", getCurrentIcon());
+// });
 
 // Typing Animation using Typed JS
-var typed = new Typed(".type", {
-  strings: ["a Web", "an Android", "a Blockchain"],
-  smartBackspace: true,
-  startDelay: 1000,
-  typeSpeed: 130,
-  backDelay: 1000,
-  backSpeed: 60,
-  loop: true,
-});
+// var typed = new Typed(".type", {
+//   strings: ["a Web", "an Android", "a Blockchain"],
+//   smartBackspace: true,
+//   startDelay: 1000,
+//   typeSpeed: 130,
+//   backDelay: 1000,
+//   backSpeed: 60,
+//   loop: true,
+// });
+  // const light_mode = localStorage.getItem('light_mode')
+  const Mode = document.getElementById('switch'); 
+  const Inner_Text = document.getElementById('mode_icon');
+  Mode.onclick = function(){
+    // localStorage.setItem('light_mode',true)
+    document.body.classList.toggle('dark-mode');
+    if(document.body.classList.contains('dark-mode')){
+      Inner_Text.innerHTML = 'light_mode';
+    }
+    else{
+      Inner_Text.innerHTML ='dark_mode';
+    }
+  }
