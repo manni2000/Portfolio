@@ -2,64 +2,64 @@
 const form = document.getElementById("contact-form");
 
 async function handleSubmit(event) {
-  event.preventDefault();
-  var status = document.getElementById("alert");
-  var data = new FormData(event.target);
-  fetch(event.target.action, {
-    method: form.method,
-    body: data,
-    headers: {
-      Accept: "application/json",
-    },
-  })
-    .then((response) => {
-      status.innerHTML = "Your message has been sent.";
-      document.querySelector(".alert_style").style.display = "block";
-
-      // hide alert after 3 seconds
-      setTimeout(function () {
-        document.querySelector(".alert_style").style.display = "none";
-      }, 4000);
-      form.reset();
+    event.preventDefault();
+    var status = document.getElementById("alert");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            Accept: "application/json",
+        },
     })
-    .catch((error) => {
-      status.innerHTML =
-        "Oops! There was a problem delivering your message, please contact via other means.";
-      document.querySelector(".alert_style").style.display = "block";
+        .then((response) => {
+            status.innerHTML = "Your message has been sent.";
+            document.querySelector(".alert_style").style.display = "block";
 
-      // hide alert after 3 seconds
-      setTimeout(function () {
-        document.querySelector(".alert_style").style.display = "none";
-      }, 4000);
-    });
+            // hide alert after 3 seconds
+            setTimeout(function () {
+                document.querySelector(".alert_style").style.display = "none";
+            }, 4000);
+            form.reset();
+        })
+        .catch((error) => {
+            status.innerHTML =
+                "Oops! There was a problem delivering your message, please contact via other means.";
+            document.querySelector(".alert_style").style.display = "block";
+
+            // hide alert after 3 seconds
+            setTimeout(function () {
+                document.querySelector(".alert_style").style.display = "none";
+            }, 4000);
+        });
 }
 form.addEventListener("submit", handleSubmit);
 
 // NAVIGATION PANEL
 let navMenu = document.getElementById("nav-menu"),
-  navToggle = document.getElementById("nav-toggle"),
-  navClose = document.getElementById("nav-close");
+    navToggle = document.getElementById("nav-toggle"),
+    navClose = document.getElementById("nav-close");
 
 // MENU SHOW
 if (navToggle) {
-  navToggle.addEventListener("click", () => {
-    navMenu.classList.add("show-menu");
-  });
+    navToggle.addEventListener("click", () => {
+        navMenu.classList.add("show-menu");
+    });
 }
 
 // MENU HIDDEN
 if (navClose) {
-  navClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-  });
+    navClose.addEventListener("click", () => {
+        navMenu.classList.remove("show-menu");
+    });
 }
 
 // REMOVE MENU MOBILE
 const navLink = document.querySelectorAll(".nav_link");
 
 function linkAction() {
-  navMenu = document.getElementById("nav-menu");
-  navMenu.classList.remove("show-menu");
+    navMenu = document.getElementById("nav-menu");
+    navMenu.classList.remove("show-menu");
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
@@ -70,9 +70,9 @@ const skillContentArr = Array.from(skillContent);
 const skillHeaderArr = Array.from(skillHeader);
 
 skillHeaderArr.forEach((element, idx) => {
-  element.addEventListener("click", function () {
-    skillContentArr[idx].classList.toggle("skills_open");
-  });
+    element.addEventListener("click", function () {
+        skillContentArr[idx].classList.toggle("skills_open");
+    });
 });
 
 // QUALIFICATION TABS
@@ -83,22 +83,22 @@ let workheader = document.getElementById("workheader");
 workheader.style.color = "var(--first-colour)";
 
 educationheader.addEventListener("click", () => {
-  let condition1 = work.classList.contains("qualification-inactive");
-  if (!condition1) {
-    education.classList.remove("qualification-inactive");
-    work.classList.add("qualification-inactive");
-    workheader.style.color = "var(--text-colour)";
-    educationheader.style.color = "var(--first-colour)";
-  }
+    let condition1 = work.classList.contains("qualification-inactive");
+    if (!condition1) {
+        education.classList.remove("qualification-inactive");
+        work.classList.add("qualification-inactive");
+        workheader.style.color = "var(--text-colour)";
+        educationheader.style.color = "var(--first-colour)";
+    }
 });
 workheader.addEventListener("click", () => {
-  let condition2 = education.classList.contains("qualification-inactive");
-  if (!condition2) {
-    work.classList.remove("qualification-inactive");
-    education.classList.add("qualification-inactive");
-    educationheader.style.color = "var(--text-colour)";
-    workheader.style.color = "var(--first-colour)";
-  }
+    let condition2 = education.classList.contains("qualification-inactive");
+    if (!condition2) {
+        work.classList.remove("qualification-inactive");
+        education.classList.add("qualification-inactive");
+        educationheader.style.color = "var(--text-colour)";
+        workheader.style.color = "var(--first-colour)";
+    }
 });
 
 // PORTFOLIO SWIPER
@@ -122,39 +122,39 @@ workheader.addEventListener("click", () => {
 const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
-  const scrollY = window.pageYOffset;
+    const scrollY = window.pageYOffset;
 
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 50;
-    let sectionId = current.getAttribute("id");
+    sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        let sectionId = current.getAttribute("id");
 
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document
-        .querySelector(".nav_menu a[href*=" + sectionId + "]")
-        .classList.add("active-link");
-    } else {
-      document
-        .querySelector(".nav_menu a[href*=" + sectionId + "]")
-        .classList.remove("active-link");
-    }
-  });
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document
+                .querySelector(".nav_menu a[href*=" + sectionId + "]")
+                .classList.add("active-link");
+        } else {
+            document
+                .querySelector(".nav_menu a[href*=" + sectionId + "]")
+                .classList.remove("active-link");
+        }
+    });
 }
 window.addEventListener("scroll", scrollActive);
 
 // HEADER SHADOW
 function scrollHeader() {
-  const nav = document.getElementById("header");
-  if (this.scrollY >= 80) nav.classList.add("scroll-header");
-  else nav.classList.remove("scroll-header");
+    const nav = document.getElementById("header");
+    if (this.scrollY >= 80) nav.classList.add("scroll-header");
+    else nav.classList.remove("scroll-header");
 }
 window.addEventListener("scroll", scrollHeader);
 
 // SHOW SCROLL UP BUTTON
 function scrollUpfunc() {
-  const scrollUp = document.getElementById("scroll-up");
-  if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
-  else scrollUp.classList.remove("show-scroll");
+    const scrollUp = document.getElementById("scroll-up");
+    if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
+    else scrollUp.classList.remove("show-scroll");
 }
 window.addEventListener("scroll", scrollUpfunc);
 
@@ -169,17 +169,17 @@ const selectedIcon = localStorage.getItem("selected-icon");
 
 // obtain the current theme
 const getCurrentTheme = () =>
-  document.body.classList.contains(darkTheme) ? "dark" : "light";
+    document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun";
+    themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun";
 
 if (selectedTheme) {
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
-    darkTheme
-  );
-  themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
-    iconTheme
-  );
+    document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+        darkTheme
+    );
+    themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](
+        iconTheme
+    );
 }
 
 // Activate/Deactivate the theme manually with the button
@@ -202,16 +202,16 @@ if (selectedTheme) {
 //   backSpeed: 60,
 //   loop: true,
 // });
-  // const light_mode = localStorage.getItem('light_mode')
-  const Mode = document.getElementById('switch'); 
-  const Inner_Text = document.getElementById('mode_icon');
-  Mode.onclick = function(){
+// const light_mode = localStorage.getItem('light_mode')
+const Mode = document.getElementById('switch');
+const Inner_Text = document.getElementById('mode_icon');
+Mode.onclick = function () {
     // localStorage.setItem('light_mode',true)
     document.body.classList.toggle('dark-mode');
-    if(document.body.classList.contains('dark-mode')){
-      Inner_Text.innerHTML = 'light_mode';
+    if (document.body.classList.contains('dark-mode')) {
+        Inner_Text.innerHTML = 'light_mode';
     }
-    else{
-      Inner_Text.innerHTML ='dark_mode';
+    else {
+        Inner_Text.innerHTML = 'dark_mode';
     }
-  }
+}
