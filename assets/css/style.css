@@ -315,7 +315,8 @@ button {
 }
 
 .home_blob-img {
-  width: 170px;
+  height: 255px;
+  object-fit: contain;
 }
 
 .home_data {
@@ -394,9 +395,10 @@ button {
 /* ABOUT */
 .about_img {
   width: 200px;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   justify-self: center;
   align-self: center;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
 }
 
 .about_description {
@@ -416,15 +418,28 @@ button {
 }
 
 /* SKILLS  */
-.skills_container {
-  row-gap: 0;
+
+.my-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.skills_container {
+    row-gap: 0;
+    margin: auto;
+}
+
+.skills_content {
+    margin: 0.625rem;
+    padding: 1rem;
+}
+
 
 .skills_header {
   display: flex;
   align-items: center;
   margin-bottom: var(--mb-2-5);
-  cursor: pointer;
 }
 
 .skills_icon,
@@ -449,7 +464,8 @@ button {
 
 .skills_arrow {
   margin-left: auto;
-  transition: 0.4s;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .skills_list {

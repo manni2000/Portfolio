@@ -65,7 +65,7 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 // SKILLS
 const skillContent = document.querySelectorAll(".skill");
-const skillHeader = document.querySelectorAll(".skills_header");
+const skillHeader = document.querySelectorAll(".skills_arrow");
 const skillContentArr = Array.from(skillContent);
 const skillHeaderArr = Array.from(skillHeader);
 
