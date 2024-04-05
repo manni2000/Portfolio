@@ -1,6 +1,7 @@
 # Portfolio
  My Portfolio website
 <br> <br>Tech used - <b> HTML, CSS & JAVASCRIPT. </b></br><br>
+![1](https://github.com/manni2000/Portfolio/assets/91480902/fba08542-8412-4918-9116-3c2998d4eb16)
 
 
 <h1>📝 Contribute<br></h1>
